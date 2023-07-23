@@ -212,35 +212,18 @@ void GenerateItems(struct objPos list[], int listSize, const char* str, int strS
     // Random Non-Repeating Item Generation Algorithm
     ////////////////////////////////////////////////////
 
-    // Setup - Bit Vector
-    //  - Set up an int array with the number of elements equal to the x-size of the game board, initialized all to zero
-    //  - Set up another int array with the size equal to the y-size of the game board, again initialize to zero.
-    //  - Set up yet another integer array with the size matching the Goal String.
-    //      such that every character in the Goal String has a corresponding bit vector index. 
+    // Use random number generator function, rand(), to generate a random x-y coordinate and a random choice of character from the Goal String as the ASCII character symbol.
+    // This will then be a candidate of the randomly generated Item to be placed on the game board.
 
-    //  General Idea:
-    //    When a random integer has been generated, use it as an index to access the bit vector
-    //    If the value at the index in the bit vector is zero, it means this recent random integer has not been generated before.
-    //      Accept this random integer, and change the value at the index to non-zero.
-    //    If the value at the index in the bit vector is non-zero, it means this random number has been generated before.
-    //      Reject this random integer, and generate another one.
+    // In order to make sure this candidate is validated, it needs to meet both criteria below:
+    //  1. Its coordinate and symbol has not been previously generated (no repeating item)
+    //  2. Its coordinate does not overlap the Player's position
+    // Thus, for every generated item candidate, check whether its x-y coordinate and symbol has previously generated.  
+    //  Also, check if it overlaps the player position
+    //      If yes, discard this candidate and regenerate a new one
+    //      If no, this candidate is validated.  Add it to the input list[]
 
-    //  Random Coordinate Generation (not ideal):
-    //  - Generate non-repeating x coordinate values using its bit vector
-    //  - Generate non-repeating y coordinate values using its bit vector
-    //  - Also want to make sure that player position is not in the generate range!!
-
-    //  Random Character Symbol Generation:
-    //  - Generate random integer index, then determine whether the character at this index has been used (using it bit vector)
-    //  - If character has not been used, accept the character at this index.
-    //    Otherwise, reject this index, and regenerate another random integer.
-
-    //  Output
-    //  - Write the random x-y coordinates and their corresponding characters into the objStr array
-    
-
-    //  Above and Beyond: 
-    //  - What would you do if we want not only the characters from the Goal String to be generated,
-    //    but also other unrelated ASCII characters?
+    // There are many efficient ways to do this question
+    //  We will take a deep dive into some methods in 2SI.
 
 }
