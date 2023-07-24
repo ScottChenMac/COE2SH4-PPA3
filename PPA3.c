@@ -53,8 +53,12 @@ void CleanUp(void);
 
 // [TODO] In PPA3, you will need to implement this function to generate random items on the game board
 //        to set the stage for the Scavenger Hunter game.
-void GenerateItems(struct objPos list[], int listSize, const char* str, int strSize);
-
+// list[]       The pointer to the Item Bin
+// listSize     The size of the Item Bin (5 by default)
+// xRange       The maximum range for x-coordinate generation (probably the x-dimension of the gameboard?)
+// yRange       The maximum range for y-coordinate generation (probably the y-dimension of the gameboard?)
+// str          The pointer to the start of the Goal String (to choose the random characters from)
+void GenerateItems(struct objPos list[], const int listSize, const int xRange, const int yRange, const char* str)
 
 
 
@@ -204,7 +208,7 @@ void CleanUp(void)
 
 // The Item Generation Routine
 ////////////////////////////////////
-void GenerateItems(struct objPos list[], int listSize, const char* str, int strSize)
+void GenerateItems(struct objPos list[], const int listSize, const int xRange, const int yRange, const char* str)
 {
     // This is possibly one of the most conceptually challenging function in all PPAs
     // Once you've mastered this one, you are ready to take on the 2SH4 course project!
@@ -213,6 +217,7 @@ void GenerateItems(struct objPos list[], int listSize, const char* str, int strS
     ////////////////////////////////////////////////////
 
     // Use random number generator function, rand(), to generate a random x-y coordinate and a random choice of character from the Goal String as the ASCII character symbol.
+    //      The x and y coordinate range should fall within the xRange and yRange limits, which should be the x- and y-dimension of the board size.
     // This will then be a candidate of the randomly generated Item to be placed on the game board.
 
     // In order to make sure this candidate is validated, it needs to meet both criteria below:
