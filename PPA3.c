@@ -55,10 +55,11 @@ void CleanUp(void);
 //        to set the stage for the Scavenger Hunter game.
 // list[]       The pointer to the Item Bin
 // listSize     The size of the Item Bin (5 by default)
+// playerPos    The pointer to the Player Object, read only.
 // xRange       The maximum range for x-coordinate generation (probably the x-dimension of the gameboard?)
 // yRange       The maximum range for y-coordinate generation (probably the y-dimension of the gameboard?)
 // str          The pointer to the start of the Goal String (to choose the random characters from)
-void GenerateItems(struct objPos list[], const int listSize, const int xRange, const int yRange, const char* str)
+void GenerateItems(struct objPos list[], const int listSize, const struct objPos *playerPos, const int xRange, const int yRange, const char* str);
 
 
 
@@ -208,7 +209,7 @@ void CleanUp(void)
 
 // The Item Generation Routine
 ////////////////////////////////////
-void GenerateItems(struct objPos list[], const int listSize, const int xRange, const int yRange, const char* str)
+void GenerateItems(struct objPos list[], const int listSize, const struct objPos *playerPos, const int xRange, const int yRange, const char* str)
 {
     // This is possibly one of the most conceptually challenging function in all PPAs
     // Once you've mastered this one, you are ready to take on the 2SH4 course project!
