@@ -12,5 +12,5 @@ ${EXEC} : $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) ${POSTLINKER}
 
 clean :
-	rm -rf ${OBJ} ${EXEC}
+	rm -r ${OBJ} ${EXEC} ${EXEC}.exe
 
