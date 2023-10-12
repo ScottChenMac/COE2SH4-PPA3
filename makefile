@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-I.
+CFLAGS=-I. -g
 OBJ = MacUILib.o myStringLib.o PPA3.o 
 DEPS = *.h
 #POSTLINKER = -lncurses   ## uncomment this if on Linux
